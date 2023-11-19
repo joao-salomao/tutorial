@@ -49,12 +49,12 @@ jobs:
             sudo mv /tmp/new-version app
 
             # Update ownership and permissions
-            cd app
             sudo chown -R $USER:www-data app
             sudo chmod -R 775 app/storage
             sudo chmod -R 775 app/bootstrap/cache
 
             # Migrate the database
+            cd app
             php artisan migrate --force --no-interaction
 
             # Start Nginx
